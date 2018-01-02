@@ -1,4 +1,4 @@
-package com.bdqn.entity;
+package com.entity;
 
 import java.util.Date;
 

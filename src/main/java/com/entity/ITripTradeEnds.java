@@ -1,4 +1,4 @@
-package com.bdqn.entity;
+package com.entity;
 
 /**
  * Created by Administrator on 2018/1/2.
