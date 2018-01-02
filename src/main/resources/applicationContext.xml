@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.2.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+    <context:property-placeholder location="classpath:database.properties"/>
+    <bean id="dataResource" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="${jdbc.driver}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.user}"/>
+        <property name="password" value="${jdbc.pwd}"/>
+    </bean>
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataResource"></property>
+        <property name="configLocation" value="classpath:mybatis-configer.xml"/>
+        <property name="plugins">
+            <array>
+                <bean class="com.github.pagehelper.PageInterceptor">
+                    <property name="properties">
+                        <value>
+                            helperDialect=mysql
+                            resonable=true
+                        </value>
+                    </property>
+
+                </bean>
+            </array>
+        </property>
+    </bean>
+    <aop:aspectj-autoproxy/>
+   <!-- <aop:config proxy-target-class="true">
+        <aop:pointcut expression="execution(* *cn.appsys.service..*(..))" id="transService"/>
+        <aop:advisor advice-ref="myAdvice" pointcut-ref="transService"/>
+    </aop:config>-->
+
+    <!--<tx:advice id="myAdvice" &lt;!&ndash;transaction-manager="txManager"&ndash;&gt;>
+        <tx:attributes>
+            <tx:method name="appsys*"  propagation="REQUIRED" rollback-for="Exception"  />
+            <tx:method name="*" />
+        </tx:attributes>
+    </tx:advice>-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.dao"></property>
+    </bean>
+    <context:component-scan base-package="com.service"/>
+
+
+</beans>
