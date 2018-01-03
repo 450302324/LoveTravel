@@ -7,9 +7,9 @@ import java.util.Date;
  */
 public class ITripUserLinkUser {
     /*常用旅客吧？？？*/
-    private Long id,createdBy,modifiedBy;//该表主键id,创建人，修改人
+    private Long id,createdBy,modifiedBy,userId;//该表主键id,创建人，修改人,用户id
     private String linkUserName,linkIdCard,linkPhone;//
-    private Integer userId,linkIdCardType;//用户id，证件类型：(0-身份证，1-护照，2-学生证，3-军人证，4-驾驶证，5-旅行证)
+    private Integer linkIdCardType;//证件类型：(0-身份证，1-护照，2-学生证，3-军人证，4-驾驶证，5-旅行证)
     private Date creationDate,modifyDate;//创建时间，修改时间
 
     public Long getId() {
@@ -60,13 +60,7 @@ public class ITripUserLinkUser {
         this.linkPhone = linkPhone;
     }
 
-    public Integer getUserId() {
-        return userId;
-    }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
 
     public Integer getLinkIdCardType() {
         return linkIdCardType;
@@ -92,16 +86,24 @@ public class ITripUserLinkUser {
         this.modifyDate = modifyDate;
     }
 
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
     @Override
     public String toString() {
         return "ITripUserLinkUser{" +
                 "id=" + id +
                 ", createdBy=" + createdBy +
                 ", modifiedBy=" + modifiedBy +
+                ", userId=" + userId +
                 ", linkUserName='" + linkUserName + '\'' +
                 ", linkIdCard='" + linkIdCard + '\'' +
                 ", linkPhone='" + linkPhone + '\'' +
-                ", userId=" + userId +
                 ", linkIdCardType=" + linkIdCardType +
                 ", creationDate=" + creationDate +
                 ", modifyDate=" + modifyDate +
