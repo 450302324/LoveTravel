@@ -21,8 +21,17 @@ public class ITripHotelOrder {
 
     private Date checkInDate,checkOutDate,creationDate,modifyDate;
     //入住时间,退房时间,创建时间，修改时间
+    private ITripHotelRoom iTripHotelRoom;//关联room
 
     private BigDecimal payAmount;//支付金额
+
+    public ITripHotelRoom getiTripHotelRoom() {
+        return iTripHotelRoom;
+    }
+
+    public void setiTripHotelRoom(ITripHotelRoom iTripHotelRoom) {
+        this.iTripHotelRoom = iTripHotelRoom;
+    }
 
     public Long getId() {
         return id;
@@ -269,6 +278,7 @@ public class ITripHotelOrder {
                 ", checkOutDate=" + checkOutDate +
                 ", creationDate=" + creationDate +
                 ", modifyDate=" + modifyDate +
+                ", iTripHotelRoom=" + iTripHotelRoom +
                 ", payAmount=" + payAmount +
                 '}';
     }

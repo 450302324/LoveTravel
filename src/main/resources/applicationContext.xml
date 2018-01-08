@@ -44,6 +44,22 @@
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.dao"></property>
     </bean>
+
+    <!--支付宝手机支付配置文件-->
+    <bean class="com.config.AlipayConfig">
+        <property name="appID" value="2016082100307705"/>
+        <property name="rsaPrivateKey" value="MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCKJYOUv2zAujja+GR07c5jP5t8+ZEqe+kOozM44N/5sLDtSA9MrbROg9AuHAT+9N9QzN/COp9suKlyS3cNvLRSeFyWnuhM7mKnQhwlwuqp/IVP+x3lSPtAOwACZ8IFv1ItZZaHD0S7pOyclD+xH+2bBzHR2/bypXMmi/CrHcZEaYuGpqjqVpUcwgNim4QO7MD3luIihFz2fit5RrVaGuq4aV+Ij8BNW9T5XJRYLvkS9lu4V5UVE66o3IloS0exqdmPRVKu+aaAM5lCbqAw13SRT2eFNXe7lOU5g02L6k0BIXBkAZDifjgC6LX8nBqAwvD9fHx/APZA7fo1oH2/Pqw7AgMBAAECggEAEZ9HcaoZjVwz9HrLFb9gHHj4tLCBPBIiYKOg3RiSeZ94ckxG51khLwLRg5A/cuZ5tizsPjKMM6o6s0G9Jht0RTDlXrFWoLmoC/366TY8CQMVXmaCIcV1h3P/RE9ICMOnD/NtiD0CX41iQXcHyOhxvtzkFgkhL0K7tacURD/AEunTzkPnMF//eCJWznq7UeBlvlDXb8QGdC+NAAv1I8IuhSaswC9jaw4s1W3IQz4KriOUYY209bGTdP/hQXlaTWCAFj4HOAAUVqDqzOq7OqnmFkQeqthzU7JkA9MLf4FO5HwxSV9wg31Fe/epXgtwa2RRPeHtP80GXL9aC0OLM1YpQQKBgQC/UbTu1bpzAfFTvGaMz/eVl5N8k/bIvW18Q8o5f9GkB3rJy2p8ODz7Tp1Od22UKEi1BjHJx8/V19QJwXvxiXCqHysxtksguqqLc0bkJkIsbMN5yHJK+z8pSTSriEW4/+YwyaCZ3WMEqt0GfXsS/QSuOjmGUQjyW7sSF2QyzSt27QKBgQC42dJyqVXUcXs4z4+NRnAouD98E3gTW+myZ+wIuP2CPaJW0J3txq3rcJuTv7xQNfBz1CKnrRhzcKfJWRKW3qUNbLrpLV+B5D3NcmKGOfOTGbM3/y2M5mBG5REqJJFGK4SQhQsqYA9pchm7FKmHLtYgZhLZtZ2s3+EfKFp4yljixwKBgA1M1NM1sHyGSgyUMFzhqEiR/QLQFnvmD1JwNALDTAOnMXYN2h1Am5ys3mqyCsAd/M/42kU4ys4G7wqulLs53sc023/dOGPSFkEThn4d2sPT29L/iFKGHOH14N973bz6rTn/Clcn+NY+OpdU6dVsGYMzMQSRZZnTnrGnRqPxd3ARAoGBAKFQNX8ql2RVxBrHx5aaKbbfU0eMFfWO+FpgpnLWPSUzdEAevjOKdqxIEPzXDhdRew0Zy0RYokXbwhDMUpSmp5MXl+V1WyuXavenIqPQXue4PdZYMgAL62jy7g/A6aY6w+z6rcvFGK4EjL/eQDNghCyx5zFmdLswhN0T8iAHNZpxAoGAS+6r0SFAD37b1e8skCs+rpGquJQdP8y6zbMdndFC7kMhOzXc/BzU4GOwMf9iPw+/Aywm4PtS6sjZLiSTDoOJ87vTgyhl3TTjPPMmChpwL27FjvYmke44doOvuQXmkccsUDdqfGUWI66/hoY9OsTEbAKHIIhvfsEBrzYFKoN46S8="/>
+        <property name="notifyUrl" value="http://loaclhost:8080/LoveTravel/pay/notify"/>
+        <property name="returnUrl" value="http://loaclhost:8080/LoveTravel/pay/return"/>
+        <property name="url" value="https://openapi.alipaydev.com/gateway.do"/>
+        <property name="charset" value="UTF-8"/>
+        <property name="format" value="json"/>
+        <property name="alipayPublicKey" value="MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAiiWDlL9swLo42vhkdO3OYz+bfPmRKnvpDqMzOODf+bCw7UgPTK20ToPQLhwE/vTfUMzfwjqfbLipckt3Dby0Unhclp7oTO5ip0IcJcLqqfyFT/sd5Uj7QDsAAmfCBb9SLWWWhw9Eu6TsnJQ/sR/tmwcx0dv28qVzJovwqx3GRGmLhqao6laVHMIDYpuEDuzA95biIoRc9n4reUa1WhrquGlfiI/ATVvU+VyUWC75EvZbuFeVFROuqNyJaEtHsanZj0VSrvmmgDOZQm6gMNd0kU9nhTV3u5TlOYNNi+pNASFwZAGQ4n44Aui1/JwagMLw/Xx8fwD2QO36NaB9vz6sOwIDAQAB"/>
+        <property name="logPath" value="/logs"/>
+        <property name="signType" value="RSA2"/>
+        <property name="paymentSuccessUrl" value="/jsp/pay/successPay.jsp"/>
+        <property name="paymentFailureUrl" value="/jsp/pay/failurePay.jsp"/>
+    </bean>
     <context:component-scan base-package="com.service"/>
 
 

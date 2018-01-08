@@ -9,8 +9,9 @@
 <html>
   <head>
     <title>$Title$</title>
+    <%@include file="easyuiBasic.jsp"%>
   </head>
   <body>
-  $END$
+  <a href="${pageContext.request.contextPath}/pay/queryHotelOrderById?hotelOrderId=1">订单list支付(未支付继续支付)</a>
   </body>
 </html>

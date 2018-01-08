@@ -31,8 +31,8 @@
                 </property>
             </bean>
 
-            <bean class="org.springframework.http.converter.StringHttpMessageConverter"/>
-            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
+          <!--  <bean class="org.springframework.http.converter.StringHttpMessageConverter"/>
+            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>-->
         </mvc:message-converters>
     </mvc:annotation-driven>
 
@@ -57,6 +57,7 @@
         <!--<property name="maxUploadSize" value="500000000"/>-->
         <!--<property name="defaultEncoding" value="UTF-8"/>-->
     <!--</bean>-->
+
 
     <context:component-scan base-package="com.controller"/>
     <mvc:resources mapping="/statics/**" location="/statics/"/>
